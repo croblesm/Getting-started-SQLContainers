@@ -13,12 +13,12 @@ You will be able to leverage SQL Server containers to build database environment
 * DBA / database developer experience with SQL Server
 
 ## **Demos**  
-* [Building custom MSSQL-Tools image with ACR](Demo_01)
-* [SQL containers on ACI with Azure CLI](Demo_02/#part-1---azure-cli-experience)
-* [SQL containers on ACI with Azure portal](Demo_02/#part-2---portal-experience)
-* [SQL containers on ACI with Docker CLI](Demo_02/#part-3---docker-cli-experience)
-* [Script deployment from Cloud environment](Demo_03)
-* [SQL Server HA in AKS](Demo_04)
+* [Basic SQL Server container management](Demo_01)
+* [SQL Server client connectivity and script deployment](Demo_02)
+* [Persitent storage (data) with Docker volumes](Demo_03)
+* [SQL Server version upgrade with containers](Demo_04)
+* [SQL Server deployment on Kubernetes](Demo_04)
+* [SQL Server HA in Kubernetes](Demo_05)
 
 ## Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

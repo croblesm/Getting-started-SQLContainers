@@ -1,4 +1,4 @@
-# DEMO 1 - Basic container
+# DEMO 1 - Basic SQL Server container
 #   1- Start a container
 #   2- Connect to ADS (get instance name & version)
 #   3- Basic commands
