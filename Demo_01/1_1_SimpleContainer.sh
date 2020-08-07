@@ -1,50 +1,72 @@
-# DEMO 1 - Basic SQL Server container
-#   1- Start a container
-#   2- Connect to ADS (get instance name & version)
-#   3- Basic commands
-#   4- Connect through bash
-#   5- Run query using sqlcmd
-#   6- Run basic Docker client commands
-#   7- Delete container
+# DEMO 1 - Basic container
+#   1- Get SQL Server image list from MCR (Microsoft Container registry)
+#   2- Create new SQL container
+#   3- Basic container management commands
+#   4- Cleanup
 # -----------------------------------------------------------------------------
+#   Reference
+#   SQL Server logging on Linux
+#   https://blog.dbi-services.com/sql-server-on-linux-and-logging/
+#
+#   Docker commands aliases
+#   https://www.sqlservercentral.com/articles/creating-aliases-for-most-command-docker-commands
+#
 
-# 1- Starting container
+# 1- Get SQL Server image list from MCR (Microsoft Container registry)
+# Ubuntu based images
+curl -s -L https://mcr.microsoft.com/v2/mssql/server/tags/list/
+
+### Powershell 👇 🔌🐚
+# pwsh -c "(Invoke-WebRequest -URI https://mcr.microsoft.com/v2/mssql/server/tags/list/).content"
+
+# RHEL based images
+curl -s -L https://mcr.microsoft.com/v2/mssql/rhel/server/tags/list/
+
+### Powershell 👇 🔌🐚
+# pwsh -c "(Invoke-WebRequest -URI https://mcr.microsoft.com/v2/mssql/rhel/server/tags/list/).content"
+
+# 2- Create new SQL container
 docker run \
---name SQLSat830 \
---hostname SQLSat830 \
+--name SQL-Plex \
+--hostname SQL-Plex \
 --env 'ACCEPT_EULA=Y' \
---env 'MSSQL_SA_PASSWORD=SqlS@T830#' \
+--env 'MSSQL_SA_PASSWORD=SqLr0ck$!' \
 --publish 1400:1433 \
---detach mcr.microsoft.com/mssql/server:2017-CU13-ubuntu
+--detach mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-18.04
 
-# --------------------------------------
-# ADS step
-# --------------------------------------
-# 2- Connect to ADS (get instance name & version)
+# 3- Basic container management commands
+### Docker aliases 🐳 📝 
+### SQL Server Central Article 👇 👍
+### https://bit.ly/2wcxEJj
 
-# 3- Basic management through Docker client commands
-# Explain dpsa alias
-# alias dpsa='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"'
-# Start \ stop
+# Get status of all containers
+# Alias version - dkpsa
+# Active containers
+docker ps
 
-dpsa 
-docker stop SQLSat830
-docker start SQLSat830
+# All containers
+docker ps -a
 
-# 4- Connect through bash
-docker exec -it SQLSat830 "bash"
+# All containers using formatted table - By name, image and status
+docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+docker ps -a -f "name=SQL-Plex" --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}"
 
-# 5- Run query using sqlcmd
-/opt/mssql-tools/bin/sqlcmd -H localhost -U SA -P SqlS@T830#
-select @@servername;
-GO
-select @@version;
-GO
+# Stop container
+# Alias version - dkstp SQL-Plex
+docker stop SQL-Plex
 
-# 6- Run basic Docker client commands
-dpsa
-docker images
-docker container ls
+# Start container
+# Alias version - dkstrt SQL-Plex
+docker start SQL-Plex
 
-# 7- Delete container
-docker rm SQLSat830
+# Check container logs
+# Alias version - dklgsf SQL-Plex
+docker logs SQL-Plex -f
+
+# 4- Cleanup
+# To force deletion, without stopping the container: 
+# docker rm -f SQL-Plex
+# Alias version - dkrm SQL-Plex
+docker stop SQL-Plex
+docker rm SQL-Plex

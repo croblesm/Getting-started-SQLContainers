@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------- 
 -- Get SQL Server Instance and OS Level Details
 ---------------------------------------------------------------------------------
+
+-- Getting SQL Server instance information
 SELECT
     SERVERPROPERTY('ServerName') AS [Instance Name],
     CASE LEFT(CONVERT(VARCHAR, SERVERPROPERTY('ProductVersion')),4) 
@@ -11,6 +13,7 @@ SELECT
 			ELSE 'Newer than SQL Server 2017'
 		END AS [Version Build],
     SERVERPROPERTY('ProductVersion') AS [Product Version],
+    SERVERPROPERTY('ProductUpdateLevel') AS [CU],
     RIGHT(@@version, LEN(@@version)- 3 -charindex (' ON ', @@VERSION)) [OS Version],
     SERVERPROPERTY ('Edition') AS [Edition],
     [cpu_count] AS [CPUs],
