@@ -14,11 +14,12 @@ You will be able to leverage SQL Server containers to build database environment
 
 ## **Demos**  
 * [Basic SQL Server container management](Demo_01)
-* [SQL Server client connectivity and script deployment](Demo_02)
-* [Persitent storage (data) with Docker volumes](Demo_03)
-* [SQL Server version upgrade with containers](Demo_04)
-* [SQL Server deployment on Kubernetes](Demo_04)
-* [SQL Server HA in Kubernetes](Demo_05)
+* [Inspecting and monitoring SQL Server containers](Demo_02)
+* [SQL Server client connectivity](Demo_03)
+* [Persitent storage (data) with Docker volumes](Demo_04)
+<!---* [SQL Server version upgrade with containers](Demo_05)-->
+* [SQL Server deployment on Kubernetes](Demo_06)
+* [SQL Server HA in Kubernetes](Demo_07)
 
 ## Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>
