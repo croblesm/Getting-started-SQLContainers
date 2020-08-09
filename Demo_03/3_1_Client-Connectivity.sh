@@ -97,12 +97,15 @@ sqlcmd -S <hostname | port number> -U <login> -P <password>
 # Connect to SQL container (SQLPlex)
 sqlcmd -S localhost,1400 -U SA -P "_SqLr0ck5_"
 
-# sqlcmd - SA password environment variable
+# Set SA password as sqlcmd environment variable
 SQLCMDPASSWORD="_SqLr0ck5_"
-sqlcmd -S localhost -U SA -Q "SET NOCOUNT ON; SELECT name from sys.databases"
+
+# Connect and execute queries (no SA exposed)
+sqlcmd -S localhost,1400 -U SA -Q "SET NOCOUNT ON; SELECT name from sys.databases"
+sqlcmd -S localhost,1400 -U SA -h -1 -Q "SET NOCOUNT ON; SELECT @@SERVERNAME"
 
 # Create database
-sqlcmd -S localhost -U SA -d master -e -i 3_2_Create_Database.sql
+sqlcmd -S localhost,1400 -U SA -d master -e -i 3_2_Create_Database.sql
 
 # 7- Connect using Azure Data Studio
 # ---------------------------------------------------------

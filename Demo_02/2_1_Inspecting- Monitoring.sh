@@ -16,12 +16,12 @@
 
 # 1- Create new SQL container
 docker run \
---name SQL-Plex \
---hostname SQL-Plex \
---env 'ACCEPT_EULA=Y' \
---env 'MSSQL_SA_PASSWORD=_SqLr0ck5_' \
---publish 1400:1433 \
---detach mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-18.04
+    --name SQL-Plex \
+    --hostname SQL-Plex \
+    --env 'ACCEPT_EULA=Y' \
+    --env 'MSSQL_SA_PASSWORD=_SqLr0ck5_' \
+    --publish 1400:1433 \
+    --detach mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-18.04
 
 # 2- Get SQL container detailed information (inspect)
 # Use docker inspect
