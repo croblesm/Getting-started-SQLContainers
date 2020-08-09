@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mssql-plex-deployment
+  name: mssql-case-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sql-plex
+      app: sql-case
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: sql-plex
+        app: sql-case
     spec:
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
       containers:
-      - name: sql-plex
+      - name: sql-case
         image: mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
         ports:
           - containerPort: 1400
@@ -28,15 +28,15 @@ spec:
         - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: plex-cred
+              name: case-cred
               key: SA_PASSWORD 
         volumeMounts:
         - name: mssqldb
           mountPath: /var/opt/mssql
         resources:
           limits:
-            memory: "4Gi"
+            memory: "2Gi"
       volumes:
         - name: mssqldb
           persistentVolumeClaim:
-            claimName: pvc-data-plex
+            claimName: pvc-data-case

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-aks_cluster=endurance;
-namespace_simple=plex-sql;
+aks_cluster=docker-desktop;
+namespace=case-sql;
 
-echo -e  "Setting kubectl context to Endurance\n"
+echo -e  "Setting kubectl context to Docker desktop\n"
 kubectl config set-context $aks_cluster
-kubectl config set-context --current --namespace=$namespace_simple
+kubectl config set-context --current --namespace=$namespace
 
 echo -e "=============================================="
 echo -e "  Simulating failure" 
@@ -19,7 +19,7 @@ echo -e "**********************************************\n"
 kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName,IP:.status.podIP
 
 # Getting pod name
-pod=`kubectl get pods | grep mssql-plex | awk {'print $1'}`
+pod=`kubectl get pods | grep mssql-case | awk {'print $1'}`
 
 # Deleting pods
 echo -e "\n Deleting pods / Simulating pod failure"
@@ -51,7 +51,7 @@ kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:
 # Get latest pod status
 echo -e "\nChecking SQL Server logs from latest pod:"
 echo -e "**********************************************\n"
-new_pod=`kubectl get pods | grep mssql-plex | awk {'print $1'}`
+new_pod=`kubectl get pods | grep mssql-case | awk {'print $1'}`
 kubectl logs $new_pod
 
 # Calculating outage
