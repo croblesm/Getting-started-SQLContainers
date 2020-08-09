@@ -13,7 +13,6 @@
 #
 #   Creating your first SQL Server container in macOS
 #   https://www.red-gate.com/simple-talk/sysadmin/containerization/creating-your-first-sql-server-docker-container-in-macos/
-#
 
 # 1- Get SQL Server image list from MCR (Microsoft Container registry)
 # Ubuntu based images
@@ -34,7 +33,7 @@ docker run \
     --hostname SQL-Plex \
     --env 'ACCEPT_EULA=Y' \
     --env 'MSSQL_SA_PASSWORD=_SqLr0ck5_' \
-    --publish 1400:1433 \
+    --publish 1401:1433 \
     --detach mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-18.04
 
 # 3- Basic container management commands

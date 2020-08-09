@@ -5,11 +5,10 @@
 #   4- Exploring your SQL Server container
 #   5- Network connectivity
 #   6- Connect using sqlcmd
-#   7- Connect using sqlcmd
+#   7- Connect using Azure Data Studio
 #   8- Get SQL Server instance and database properties
-#
 # -----------------------------------------------------------------------------
-#   Reference
+# Reference
 #   mssql-conf tool
 #   https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf?view=sql-server-ver15
 #
@@ -21,7 +20,6 @@
 #
 #   Docker Exec Command With Examples
 #   https://devconnected.com/docker-exec-command-with-examples/#Docker_Exec_Interactive_Option_IT
-#
 
 # 0- Env variables | demo path
 cd ~/Documents/Getting-started-SQLContainers/Demo_03;
@@ -95,17 +93,17 @@ docker port SQL-Plex
 sqlcmd -S <hostname | port number> -U <login> -P <password>
 
 # Connect to SQL container (SQLPlex)
-sqlcmd -S localhost,1400 -U SA -P "_SqLr0ck5_"
+sqlcmd -S localhost,1401 -U SA -P "_SqLr0ck5_"
 
 # Set SA password as sqlcmd environment variable
 SQLCMDPASSWORD="_SqLr0ck5_"
 
 # Connect and execute queries (no SA exposed)
-sqlcmd -S localhost,1400 -U SA -Q "SET NOCOUNT ON; SELECT name from sys.databases"
-sqlcmd -S localhost,1400 -U SA -h -1 -Q "SET NOCOUNT ON; SELECT @@SERVERNAME"
+sqlcmd -S localhost,1401 -U SA -Q "SET NOCOUNT ON; SELECT name from sys.databases;"
+sqlcmd -S localhost,1401 -U SA -h -1 -Q "SET NOCOUNT ON; SELECT @@SERVERNAME;"
 
 # Create database
-sqlcmd -S localhost,1400 -U SA -d master -e -i 3_2_Create_Database.sql
+sqlcmd -S localhost,1401 -U SA -d master -e -i 3_2_Create_Database.sql
 
 # 7- Connect using Azure Data Studio
 # ---------------------------------------------------------

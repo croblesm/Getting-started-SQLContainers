@@ -1,10 +1,10 @@
-# DEMO 2 - Inspecting and monitoring
+# DEMO 2 - Inspecting and monitoring SQL container
 #   1- Create new SQL container
 #   2- Inspect SQL container - detailed information
 #   3- Monitoring SQL container resource utilization
 #   4- Check SQL Container logs
 # -----------------------------------------------------------------------------
-#   Reference
+# Reference
 #   SQL Server logging on Linux
 #   https://docs.docker.com/engine/reference/commandline/logs/
 #
@@ -20,7 +20,7 @@ docker run \
     --hostname SQL-Plex \
     --env 'ACCEPT_EULA=Y' \
     --env 'MSSQL_SA_PASSWORD=_SqLr0ck5_' \
-    --publish 1400:1433 \
+    --publish 1401:1433 \
     --detach mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-18.04
 
 # 2- Get SQL container detailed information (inspect)
