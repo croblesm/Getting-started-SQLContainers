@@ -14,6 +14,9 @@
 #   SQL Server - Advanced configuration
 #   https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-performance-best-practices?view=sql-server-ver15#advanced-configuration
 
+# 0- Env variables | demo path
+cd ~/Documents/Getting-started-SQLContainers/Demo_02;
+
 # 1- Create new SQL container
 docker run \
     --name SQL-Plex \

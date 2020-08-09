@@ -1,11 +1,9 @@
-# Demo 06 - SQL Server HA in Kubernetes
+# Demo 01 - Basic SQL container management
 
-* Check PVC and volume provisioned on Kubernetes
-* Connect to SQL Server to create new database
-* Simulate failure (delete pod)
-* Connect using Azure Data Studio
-* Get SQL Server instance and database properties
-* Browse Kubernetes dashboard
+* Get SQL Server image list from MCR (Microsoft * er Registry)
+* Create new SQL container
+* Basic container management commands
+* Cleanup
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

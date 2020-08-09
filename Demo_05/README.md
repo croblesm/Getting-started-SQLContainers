@@ -1,11 +1,8 @@
-# Demo 06 - SQL Server HA in Kubernetes
+# Demo 05 - SQL Server Kubernetes deployment
 
-* Check PVC and volume provisioned on Kubernetes
-* Connect to SQL Server to create new database
-* Simulate failure (delete pod)
-* Connect using Azure Data Studio
-* Get SQL Server instance and database properties
-* Browse Kubernetes dashboard
+* Create namespace, secret, pvc, service and SQL * deployment
+* Check namespace, secret, pvc, service and pod
+* Check pod (SQL Server) logs
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

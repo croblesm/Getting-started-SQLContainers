@@ -1,11 +1,13 @@
-# Demo 06 - SQL Server HA in Kubernetes
+# Demo 04 - Persitent storage (data) with Docker volumes
 
-* Check PVC and volume provisioned on Kubernetes
-* Connect to SQL Server to create new database
-* Simulate failure (delete pod)
+* SQL Server folder structure on Linux
+* Create new SQL container with local and bind * 
+* Inspect SQL container volumes
+* Use local and bind volumes
+* Restart SQL container
+* Check persistent storage
 * Connect using Azure Data Studio
 * Get SQL Server instance and database properties
-* Browse Kubernetes dashboard
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

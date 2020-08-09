@@ -4,7 +4,7 @@
 #   3- Basic container management commands
 #   4- Cleanup
 # -----------------------------------------------------------------------------
-#   Reference
+# Reference
 #   Quistart: SQL Server with Docker
 #   https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash
 #
@@ -13,6 +13,9 @@
 #
 #   Creating your first SQL Server container in macOS
 #   https://www.red-gate.com/simple-talk/sysadmin/containerization/creating-your-first-sql-server-docker-container-in-macos/
+
+# 0- Env variables | demo path
+cd ~/Documents/Getting-started-SQLContainers/Demo_01;
 
 # 1- Get SQL Server image list from MCR (Microsoft Container registry)
 # Ubuntu based images

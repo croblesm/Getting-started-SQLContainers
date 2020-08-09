@@ -1,11 +1,13 @@
-# Demo 06 - SQL Server HA in Kubernetes
+# Demo 03 - Client connectivity
 
-* Check PVC and volume provisioned on Kubernetes
-* Connect to SQL Server to create new database
-* Simulate failure (delete pod)
+* SQL Server folder structure on Linux
+* Using docker exec
+* Connect through bash (interactive terminal)
+* Exploring your SQL Server container
+* Network connectivity
+* Connect using sqlcmd
 * Connect using Azure Data Studio
 * Get SQL Server instance and database properties
-* Browse Kubernetes dashboard
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>
