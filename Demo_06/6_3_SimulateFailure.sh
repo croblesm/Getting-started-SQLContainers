@@ -1,10 +1,10 @@
 #!/bin/bash
 
-aks_cluster=docker-desktop;
+k8s_cluster=docker-desktop;
 namespace=case-sql;
 
 echo -e  "Setting kubectl context to Docker desktop\n"
-kubectl config set-context $aks_cluster
+kubectl config set-context $k8s_cluster
 kubectl config set-context --current --namespace=$namespace
 
 echo -e "=============================================="
@@ -35,7 +35,7 @@ status=0
 while [ $status -le 0 ]
 do
   echo -e "\nWaiting for new pod ... "
-  status=`kubectl get pods --field-selector=status.phase=Running | grep mssql-plex | wc -l`
+  status=`kubectl get pods --field-selector=status.phase=Running | grep mssql-case | wc -l`
   sleep 2
 done
 
@@ -45,7 +45,7 @@ end_time="$(date -u +%s)"
 # Get pods
 echo -e "\nGetting status of new pod:\n"
 echo -e "**********************************************\n"
-sleep 2
+sleep 4
 kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName,IP:.status.podIP
 
 # Get latest pod status

@@ -23,7 +23,7 @@
 
 # 0- Env variables | demo path
 cd ~/Documents/Getting-started-SQLContainers/Demo_03;
-SQLCMDPASSWORD="_SqLr0ck5_"
+export SQLCMDPASSWORD="_SqLr0ck5_";
 
 # 1- SQL Server folder structure on Linux
 # SQL Server binaries (from installation)
@@ -66,7 +66,7 @@ docker exec SQL-Plex hostname
 docker exec SQL-Plex /opt/mssql-tools/bin/sqlcmd -?
 
 # 3- Connect through bash (interactive terminal)
-docker exec -it SimpleTalk "SQL-Plex "
+docker exec -it SQL-Plex "bash"
 
 # STDIN     Standard input that will be used in order to type and submit your commands from keyboard
 # STDOUT    Standard output, this is where the process outputs will be written on screen
@@ -99,7 +99,7 @@ sqlcmd -S localhost,1401 -U SA -P "_SqLr0ck5_"
 SQLCMDPASSWORD="_SqLr0ck5_"
 
 # Connect and execute queries (no SA exposed)
-sqlcmd -S localhost,1401 -U SA -Q "SET NOCOUNT ON; SELECT name from sys.databases;"
+sqlcmd -S localhost,1401 -U SA -h -1 -Q "SET NOCOUNT ON; SELECT name from sys.databases;"
 sqlcmd -S localhost,1401 -U SA -h -1 -Q "SET NOCOUNT ON; SELECT @@SERVERNAME;"
 
 # Create database

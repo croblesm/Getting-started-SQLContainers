@@ -50,11 +50,11 @@ docker run \
 docker ps
 
 # List all containers (no filter)
-docker ps -a
+docker ps -a | grep -v k8s
 
 # List all containers using formatted table
-docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
-docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}" | grep -v k8s
+docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" | grep -v k8s
 
 # List all containers using formatted table (Filter by name)
 docker ps -a -f "name=SQL-Plex" --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}"

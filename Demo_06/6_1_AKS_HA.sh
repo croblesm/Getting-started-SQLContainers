@@ -25,7 +25,7 @@ kubectl describe pvc pvc-data-case | grep "Volume:"
 # 2- Connect to SQL Server to create new database
 # sqlcmd -S localhost,1400 -U SA -P $sa_password -Q "drop database HumanResources;"
 sqlcmd -S localhost,1400 -U SA -P $sa_password -Q "set nocount on; select @@servername;"
-sqlcmd -S localhost,1400 -U SA -P $sa_password -e -i 4_2_CreateDatabase.sql
+sqlcmd -S localhost,1400 -U SA -P $sa_password -e -i 6_2_CreateDatabase.sql
 sqlcmd -S localhost,1400 -U SA -P $sa_password -h -1 -Q "set nocount on; select name from sys.databases;"
 
 # 3- Simulate failure
