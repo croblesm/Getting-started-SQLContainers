@@ -18,17 +18,21 @@
 cd ~/Documents/Getting-started-SQLContainers/Demo_01;
 
 # 1- Get SQL Server image list from MCR (Microsoft Container registry)
+# Docker Hub images
+https://hub.docker.com/_/microsoft-mssql-server
+
+# Using command line
 # Ubuntu based images
 curl -s -L https://mcr.microsoft.com/v2/mssql/server/tags/list/
 
 ### Powershell 👇 🔌🐚
-# pwsh -c "(Invoke-WebRequest -URI https://mcr.microsoft.com/v2/mssql/server/tags/list/).content"
+pwsh -c "(Invoke-WebRequest -URI https://mcr.microsoft.com/v2/mssql/server/tags/list/).content"
 
 # RHEL based images
 curl -s -L https://mcr.microsoft.com/v2/mssql/rhel/server/tags/list/
 
 ### Powershell 👇 🔌🐚
-# pwsh -c "(Invoke-WebRequest -URI https://mcr.microsoft.com/v2/mssql/rhel/server/tags/list/).content"
+pwsh -c "(Invoke-WebRequest -URI https://mcr.microsoft.com/v2/mssql/rhel/server/tags/list/).content"
 
 # 2- Create new SQL container
 docker run \
@@ -50,11 +54,11 @@ docker run \
 docker ps
 
 # List all containers (no filter)
-docker ps -a | grep -v k8s
+docker ps -a
 
 # List all containers using formatted table
-docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}" | grep -v k8s
-docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" | grep -v k8s
+docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
 
 # List all containers using formatted table (Filter by name)
 docker ps -a -f "name=SQL-Plex" --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}"
@@ -63,7 +67,7 @@ docker ps -a -f "name=SQL-Plex" --format "table {{.Names}}\t{{.Image}}\t{{.Ports
 # Alias version - dkstp SQL-Plex
 docker stop SQL-Plex
 
-# Does SQL Server is gracefully stop with containers?
+# Does SQL Server is gracefully stopped when the container is shutdown?
 # SIGTERM   This is a generic signal to terminate a program
 # SIGKILL   This signal causes the immediate termination of a program
 

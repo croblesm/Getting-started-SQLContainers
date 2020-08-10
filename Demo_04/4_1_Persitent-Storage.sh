@@ -13,8 +13,8 @@
 cd ~/Documents/Getting-started-SQLContainers/Demo_04;
 SQLCMDPASSWORD="_SqLr0ck5_";
 SQLFiles=~/Documents/Getting-started-SQLContainers/SQLFiles;
-# docker volume rm vlm_SQL
 # dkrm SQL-Tars
+# docker volume rm vlm_SQL
 
 # 1- Create and inspect local and bind volume
 # Create local volume (Docker)
@@ -35,7 +35,7 @@ docker run \
     --env 'ACCEPT_EULA=Y' \
     --env 'MSSQL_SA_PASSWORD=_SqLr0ck5_' \
     --volume vlm_SQL:/var/opt/mssql \
-    --volume $SQlFiles:/SQLFiles \
+    --volume $SQLFiles:/SQLFiles \
     --publish 1402:1433 \
     --detach mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-18.04
 

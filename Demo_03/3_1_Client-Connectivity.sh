@@ -94,6 +94,7 @@ sqlcmd -S <hostname | port number> -U <login> -P <password>
 
 # Connect to SQL container (SQLPlex)
 sqlcmd -S localhost,1401 -U SA -P "_SqLr0ck5_"
+exit
 
 # Set SA password as sqlcmd environment variable
 SQLCMDPASSWORD="_SqLr0ck5_"
