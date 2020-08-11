@@ -84,7 +84,7 @@ docker start SQL-Tars
 
 # 6- Check persistent storage
 docker volume ls
-docker inspect vlm_Data
+docker inspect vlm_SQL
 
 # 7- Connect using Azure Data Studio
 # ---------------------------------------------------------
