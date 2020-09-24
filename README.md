@@ -7,6 +7,9 @@ This session will provide you a basic understanding; also, guidelines and option
 
 You will be able to leverage SQL Server containers to build database environments quickly at the end of this session.
 
+## YouTube recording
+[![Webinar - Docker Guatemala](https://img.youtube.com/vi/IsWxciw1s28/hqdefault.jpg)](https://youtu.be/IsWxciw1s28 "Getting Started with SQL Containers on Docker & Kubernetes")
+
 ## **Prerequisites**  
 * Basic experience with Linux
 * Basic familiarity with shell scripting
